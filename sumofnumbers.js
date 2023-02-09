@@ -1,36 +1,30 @@
-const testNums = [1, 2, 3];
-function sumFor(nums) {
-  let total = 0;
-  for (const num of nums) {
-    total += num;
+function forLoop() {
+  const testNums = [4, 6, 3];
+  let sum = 0;
+  for (let i = 0; i < testNums.length; i++) {
+    sum += testNums[i];
   }
-  return total;
+  return sum;
 }
-console.log(sumFor(testNums));
+console.log(forLoop());
 
-const sumWhile = (nums) => {
-  let total = 0;
+function whileLoop() {
+  const testNums = [7, 3, 9];
   let i = 0;
-  while (i < nums.length) {
-    total += nums[i];
+  let sum = 0;
+  while (i < testNums.length) {
+    sum += testNums[i];
     i++;
   }
-  return total;
-};
-console.log(sumWhile(testNums));
+  return sum;
+}
+console.log(whileLoop());
 
-function sumRecursion(nums) {
-  if (nums.length === 0) {
+function sumArray(list, index =0) {
+  if (index === list.length) {
     return 0;
   }
-  return nums[0] + sumRecursion(nums.slice(1, nums.length));
-
-  const sumTheSimpleWay = (nums) => {
-    return _.reduce(
-      nums,
-      function (memo, num) { return memo + num; },
-      0,
-    );
-    console.log(sumTheSimpleWay(testNums));
-  };
+ else
+   return list[0] + sumArray(list, index+ 1);
 }
+console.log(sumArray([4, 5, 8])); // outputs 17
